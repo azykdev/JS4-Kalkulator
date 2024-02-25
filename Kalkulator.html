@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Kalkulyator</title>
+
+    <style type="text/css">
+
+        body {display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;}
+
+        .kalkulyator {height: 500px;
+            width: 340px;
+            background-color: #020137;
+            border-radius: 5%;
+            }
+
+        .ekran {    width: 84%;
+            height: 18%;
+            box-sizing: border-box;
+            caret-color: white;
+            border-radius: 1%;
+            padding: 9px;
+            margin-top: 15px;
+            margin-left: 26px;
+            font-size: 30px;
+            font-weight: 700;
+            font-family: sans-serif;}
+
+        table {width: 100%;
+            color: white;
+            font-weight: bold;
+            font-size: 40px;
+            height: 80%;
+            padding: 20px}
+
+        td {    text-align: center;}
+
+        .tozalovchi {background-color: #e80060;}
+
+        td:hover {
+            background-color: cyan;
+            cursor: pointer;
+        }
+
+
+
+
+
+    </style>
+
+</head>
+<body>
+    
+    <div class="kalkulyator">
+        <input type="text" class="ekran" />
+        <table>
+            <tr>
+                <td colspan="2" class="tozalovchi">C</td>
+                <td>/</td>
+                <td>*</td>
+            </tr>
+            <tr>
+                <td >7</td>
+                <td>8</td>
+                <td>9</td>
+                <td>-</td>
+            </tr>
+            <tr>
+                <td >4</td>
+                <td>5</td>
+                <td>6</td>
+                <td rowspan="2">+</td>
+            </tr>
+            <tr>
+                <td >1</td>
+                <td>2</td>
+                <td>3</td>
+                
+            </tr>
+            <tr>
+                <td >0</td>
+                <td>00</td>
+                <td>.</td>
+                <td>=</td>
+            </tr>
+        </table>
+    </div>
+
+    <script type="text/javascript">
+
+        var ekran = document.querySelector('.ekran');
+        var tdClick = document.querySelectorAll('td');
+
+        tdClick.forEach(function(td){
+            td.addEventListener('click',function(e){
+
+                var belgi = e.target.innerText;
+
+                if (belgi == "C") {
+                    ekran.value = "";
+                } else if(belgi == "="){
+                    ekran.value = eval(ekran.value);
+                } else {
+                    ekran.value += belgi;
+                }                 
+            });
+        });
+
+    </script>
+
+</body>
+</html>
